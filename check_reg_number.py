@@ -46,4 +46,4 @@ requests.post(base_url + 'handshake/verify.htm', data=[('deviceId', deviceId), (
 
 r = requests.post(base_url + 'user/login.htm', data=encryptRequestBody(derivedKey, urllib.urlencode([('deviceId', deviceId), ('regNumber', regNumber)])))
 response_dict = decryptResponseBody(derivedKey, r.content)
-print response_dict['data']['name'], 'last logged in', response_dict['data']['lastLogin']
+print response_dict['data']
