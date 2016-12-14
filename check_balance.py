@@ -5,7 +5,7 @@ deviceId = str(uuid.uuid4())
 regNumber, pacDigits = raw_input('Please enter your 8-digit registration number and 5-digit PAC number separated by space: ').split()
 
 def DHParametersFromGenerateResponseBody(body):
-    data = json.loads(r.content)['data']
+    data = json.loads(body)['data']
     p, g, by = map(int, (data['p'], data['g'], data['y']))
     ax = 2 # Our chosen Diffie-Hellman "secret" key.
     return (p, g, by, ax, g**ax % p)
